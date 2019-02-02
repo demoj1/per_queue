@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.3">
-    <title>Queue — queue v0.1.0</title>
+    <title>Queue — queue v0.2.0</title>
     <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
-    <script src="dist/sidebar_items-3ffea43958.js"></script>
+    <script src="dist/sidebar_items-87a54b759e.js"></script>
     <script async src="dist/html-399e30b9b028e3059575.js"></script>
     
   </head>
@@ -29,7 +29,7 @@
       <h1 class="sidebar-projectName">
 queue      </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.0
+        v0.2.0
       </h2>
     </div>
   </a>
@@ -47,6 +47,7 @@ queue      </h1>
       <li><a id="modules-list" href="#full-list">Modules</a></li>
 
 
+      <li><a id="tasks-list" href="#full-list">Mix Tasks</a></li>
   </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
@@ -58,30 +59,15 @@ queue      </h1>
 
 
       <h1>
-        <small class="visible-xs">queue v0.1.0</small>
+        <small class="visible-xs">queue v0.2.0</small>
 Queue              </h1>
 
 
         <section id="moduledoc">
-<p>Персистентная очередь сообщений. 
-Очередь реализована с использованием двух стеков.</p>
-<h3 id="module-пример" class="section-heading">
-  <a href="#module-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Пример
-</h3>
-
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4077959042-1">(</span><span class="mi">1</span><span class="p" data-group-id="4077959042-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4077959042-2">(</span><span class="mi">2</span><span class="p" data-group-id="4077959042-2">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4077959042-3">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="4077959042-3">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4077959042-4">(</span><span class="p" data-group-id="4077959042-4">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="p" data-group-id="4077959042-5">(</span><span class="p" data-group-id="4077959042-5">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4077959042-6">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="4077959042-6">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4077959042-7">(</span><span class="p" data-group-id="4077959042-7">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">2</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4077959042-8">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="4077959042-8">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4077959042-9">(</span><span class="p" data-group-id="4077959042-9">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">1</span></code></pre>
+<p>Очередь сообщений.
+Перед началом использования необходимо остановить
+текущий сервис.
+Выполнить инициализацию Mnesia с помощью команды <a href="Mix.Tasks.Queue.Setup.html"><code class="inline">mix queue.setup</code></a></p>
         </section>
 
         <section id="summary" class="details-list">
@@ -92,168 +78,50 @@ Queue              </h1>
             </a>
             Summary
           </h1>
-  <div class="summary-types summary">
-    <h2>
-      <a href="#types">Types</a>
-    </h2>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#t:stack/0">stack()</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#t:t/0">t()</a>
-  </div>
-</div>
-  </div>
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#ack/0">ack()</a>
+    <a href="#ack/1">ack(ids)</a>
   </div>
-    <div class="summary-synopsis"><p>Подтвердить успешную обработку сообщения.
-После подтверждения, элемент пропадет из временого буфера.
-Откатит такой элемент уже будет не возможно</p>
+    <div class="summary-synopsis"><p>Сообщить об успешном выполнение. 
+Элементы будут удалены из очереди</p>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#add/1">add(val)</a>
+    <a href="#add/1">add(vals)</a>
   </div>
     <div class="summary-synopsis"><p>Добавить элемент в конец очереди</p>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#child_spec/1">child_spec(init_arg)</a>
+    <a href="#get/1">get(limit \\ 1)</a>
   </div>
-    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor</p>
+    <div class="summary-synopsis"><p>Получить элемент/элементы из очереди</p>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get/0">get()</a>
+    <a href="#reject/1">reject(ids)</a>
   </div>
-    <div class="summary-synopsis"><p>Получить элемент из очереди</p>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#init/1">init(opts)</a>
-  </div>
-    <div class="summary-synopsis"><p>Invoked when the server is started. <code class="inline">start_link/3</code> or <code class="inline">start/3</code> will
-block until it returns</p>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#queue/1">queue(args \\ [])</a>
-  </div>
-    <div class="summary-synopsis"><p>Структура очереди на основе двух стеков.
-Представлена в виде записи, с полями:</p>
-<ul>
-<li><code class="inline">ref</code> - уникальная сссылка текущей очереди.
-</li>
-<li><code class="inline">l</code>   - ссылка на левый стек.
-</li>
-<li><code class="inline">r</code>   - ссылка на правый стек
-</li>
-</ul>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#queue/2">queue(record, args)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#reject/0">reject()</a>
-  </div>
-    <div class="summary-synopsis"><p>Откатить все полученные элементы. 
+    <div class="summary-synopsis"><p>Сообщить о неудачном выполнение. 
 Элементы будут возвращены в конец очереди</p>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#rollback/1">rollback(ref)</a>
+    <a href="#start/2">start(type, args)</a>
   </div>
-    <div class="summary-synopsis"><p>Откатит очередь к некоторму состоянию</p>
+    <div class="summary-synopsis"><p>Called when an application is started</p>
 </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#stack/1">stack(args \\ [])</a>
-  </div>
-    <div class="summary-synopsis"><p>Структура стека.
-Представлена в виде записи, с полями:</p>
-<ul>
-<li><code class="inline">ref</code>  - уникальная ссылка текущего стека.
-</li>
-<li><code class="inline">val</code>  - текущее значение.
-</li>
-<li><code class="inline">pref</code> - ссылка на предыдущее значение стека
-</li>
-</ul>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#stack/2">stack(record, args)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#start_link/0">start_link()</a>
-  </div>
 </div>
   </div>
         </section>
 
-        <section id="types" class="details-list">
-          <h1 class="section-heading">
-            <a class="hover-link" href="#types">
-              <span class="icon-link" aria-hidden="true"></span>
-              <span class="sr-only">Link to this section</span>
-            </a>
-Types          </h1>
-          <div class="types-list">
-<section class="detail" id="t:stack/0">
-    <div class="detail-header">
-    <a href="#t:stack/0" class="detail-link" title="Link to this type">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this type</span>
-    </a>
-    <h1 class="signature">stack()</span>
-        
-      <div class="specs">
-          <pre>stack() :: {:stack, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>()}</pre>
-      </div>
-  </div>
-  <section class="docstring">
-  </section>
-</section>
-<section class="detail" id="t:t/0">
-    <div class="detail-header">
-    <a href="#t:t/0" class="detail-link" title="Link to this type">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this type</span>
-    </a>
-    <h1 class="signature">t()</span>
-        
-      <div class="specs">
-          <pre>t() :: {:queue, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>()}</pre>
-      </div>
-  </div>
-  <section class="docstring">
-  </section>
-</section>
-          </div>
-        </section>
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
@@ -262,31 +130,58 @@ Types          </h1>
             </a>
 Functions          </h1>
           <div class="functions-list">
-<section class="detail" id="ack/0">
+<section class="detail" id="ack/1">
     <div class="detail-header">
-    <a href="#ack/0" class="detail-link" title="Link to this function">
+    <a href="#ack/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">ack()</span>
+    <h1 class="signature">ack(ids)</span>
         
       <div class="specs">
-          <pre>ack() :: :ok</pre>
+          <pre>ack([<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()] | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: :ok</pre>
       </div>
   </div>
   <section class="docstring">
-<p>Подтвердить успешную обработку сообщения.
-После подтверждения, элемент пропадет из временого буфера.
-Откатит такой элемент уже будет не возможно.</p>
-<h3 id="ack/0-пример" class="section-heading">
-  <a href="#ack/0-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Сообщить об успешном выполнение. 
+Элементы будут удалены из очереди.</p>
+<h3 id="ack/1-параметры" class="section-heading">
+  <a href="#ack/1-параметры" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Параметры
+</h3>
+
+<ul>
+<li><code class="inline">ids</code> - список id элементов, которые завершились успехом.
+ID можно передавать и по одному.
+</li>
+</ul>
+<h3 id="ack/1-возвращает" class="section-heading">
+  <a href="#ack/1-возвращает" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Возвращает
+</h3>
+
+<p>Атом <code class="inline">:ok</code> в случае успеха, <code class="inline">{:error, reason}</code> в противном случае.</p>
+<h3 id="ack/1-пример" class="section-heading">
+  <a href="#ack/1-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Пример
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="2442938237-1">(</span><span class="mi">1</span><span class="p" data-group-id="2442938237-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="2442938237-2">(</span><span class="p" data-group-id="2442938237-2">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">ack</span><span class="p" data-group-id="2442938237-3">(</span><span class="p" data-group-id="2442938237-3">)</span><span class="w">
-</span><span class="ss">:ok</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="1423150671-1">(</span><span class="p" data-group-id="1423150671-2">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p" data-group-id="1423150671-2">]</span><span class="p" data-group-id="1423150671-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1423150671-3">[</span><span class="p" data-group-id="1423150671-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id1</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value1</span><span class="p" data-group-id="1423150671-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="1423150671-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-5">(</span><span class="p" data-group-id="1423150671-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value1</span><span class="w">
+</span><span class="mi">1</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1423150671-6">[</span><span class="p" data-group-id="1423150671-7">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id2</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value2</span><span class="p" data-group-id="1423150671-7">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="1423150671-6">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-8">(</span><span class="p" data-group-id="1423150671-8">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value2</span><span class="w">
+</span><span class="mi">2</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="ss">:ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">ack</span><span class="p" data-group-id="1423150671-9">(</span><span class="n">id2</span><span class="p" data-group-id="1423150671-9">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-10">(</span><span class="p" data-group-id="1423150671-10">)</span><span class="w">
+</span><span class="ss">:empty</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="1423150671-11">(</span><span class="p" data-group-id="1423150671-12">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="1423150671-12">]</span><span class="p" data-group-id="1423150671-11">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-13">(</span><span class="mi">3</span><span class="p" data-group-id="1423150671-13">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="1423150671-14">(</span><span class="k" data-group-id="1423150671-15">fn</span><span class="w"> </span><span class="p" data-group-id="1423150671-16">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p" data-group-id="1423150671-16">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k" data-group-id="1423150671-15">end</span><span class="p" data-group-id="1423150671-14">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1423150671-17">[</span><span class="p" data-group-id="1423150671-18">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="1423150671-18">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="1423150671-17">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-19">(</span><span class="p" data-group-id="1423150671-19">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value</span><span class="w">
+</span><span class="mi">1</span></code></pre>
   </section>
 </section>
 <section class="detail" id="add/1">
@@ -295,10 +190,10 @@ Functions          </h1>
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">add(val)</span>
+    <h1 class="signature">add(vals)</span>
         
       <div class="specs">
-          <pre>add(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>()</pre>
+          <pre>add(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: :ok</pre>
       </div>
   </div>
   <section class="docstring">
@@ -309,277 +204,170 @@ Functions          </h1>
 </h3>
 
 <ul>
-<li><code class="inline">val</code> - значение, добавленное в конец очереди.
+<li><code class="inline">vals</code> - значение/значения, добавляемые в конец очереди.
 </li>
 </ul>
-<h3 id="add/1-возвращает" class="section-heading">
-  <a href="#add/1-возвращает" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Возвращает
-</h3>
-
-<p>Ссылку на новую очередь.</p>
 <h3 id="add/1-пример" class="section-heading">
   <a href="#add/1-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Пример
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">new_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="6591488414-1">(</span><span class="mi">1</span><span class="p" data-group-id="6591488414-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">is_reference</span><span class="p" data-group-id="6591488414-2">(</span><span class="n">new_ref</span><span class="p" data-group-id="6591488414-2">)</span><span class="w">
-</span><span class="no">true</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8347253972-1">(</span><span class="mi">1</span><span class="p" data-group-id="8347253972-1">)</span><span class="w">
+</span><span class="ss">:ok</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8347253972-2">(</span><span class="p" data-group-id="8347253972-3">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p" data-group-id="8347253972-3">]</span><span class="p" data-group-id="8347253972-2">)</span><span class="w">
+</span><span class="ss">:ok</span></code></pre>
   </section>
 </section>
-<section class="detail" id="child_spec/1">
-    <div class="detail-header">
-    <a href="#child_spec/1" class="detail-link" title="Link to this function">
+<section class="detail" id="get/1">
+  
+    <span id="get/0"></span>
+  <div class="detail-header">
+    <a href="#get/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">child_spec(init_arg)</span>
-          </div>
-  <section class="docstring">
-<p>Returns a specification to start this module under a supervisor.</p>
-<p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="get/0">
-    <div class="detail-header">
-    <a href="#get/0" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">get()</span>
+    <h1 class="signature">get(limit \\ 1)</span>
         
       <div class="specs">
-          <pre>get() :: {<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>()}</pre>
+          <pre>get(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()} | Queue.DB.Jobs.result()</pre>
       </div>
   </div>
   <section class="docstring">
-<p>Получить элемент из очереди.</p>
-<h3 id="get/0-возвращает" class="section-heading">
-  <a href="#get/0-возвращает" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Получить элемент/элементы из очереди.</p>
+<h3 id="get/1-параметры" class="section-heading">
+  <a href="#get/1-параметры" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Параметры
+</h3>
+
+<ul>
+<li><code class="inline">limit</code> - количество получаемых элементов, по умолчанию 1.
+</li>
+</ul>
+<h3 id="get/1-возвращает" class="section-heading">
+  <a href="#get/1-возвращает" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Возвращает
 </h3>
 
-<p>Элемент и ссылку <code class="inline">{val, new_ref}</code> на новую очередь.
-В случае если очередь пустая, будет возвращено <code class="inline">{:empty, new_ref}</code>.</p>
-<p>Элемент помещается во временный буфер и закрепляется за процессом, получившим его.
-В дальнейшим процесс может подтвердить выполнение работы: <a href="#ack/0"><code class="inline">ack/0</code></a> или 
-сообщить об ошибке обработки <a href="#reject/0"><code class="inline">reject/0</code></a>.</p>
-<h3 id="get/0-пример" class="section-heading">
-  <a href="#get/0-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Лист с элементами, каждый элемент представлен ассоциативном массивом (map)
+с ключами <code class="inline">id</code> и <code class="inline">value</code>.</p>
+<h3 id="get/1-пример" class="section-heading">
+  <a href="#get/1-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Пример
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3156388501-1">{</span><span class="ss">:empty</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="3156388501-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="3156388501-2">(</span><span class="p" data-group-id="3156388501-2">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="bp">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="3156388501-3">(</span><span class="mi">1</span><span class="p" data-group-id="3156388501-3">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3156388501-4">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="3156388501-4">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="3156388501-5">(</span><span class="p" data-group-id="3156388501-5">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">1</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7068825226-1">(</span><span class="p" data-group-id="7068825226-1">)</span><span class="w">
+</span><span class="ss">:empty</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="ss">:ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7068825226-2">(</span><span class="mi">123</span><span class="p" data-group-id="7068825226-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7068825226-3">[</span><span class="p" data-group-id="7068825226-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="7068825226-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="7068825226-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7068825226-5">(</span><span class="p" data-group-id="7068825226-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value</span><span class="w">
+</span><span class="mi">123</span></code></pre>
   </section>
 </section>
-<section class="detail" id="init/1">
+<section class="detail" id="reject/1">
     <div class="detail-header">
-    <a href="#init/1" class="detail-link" title="Link to this function">
+    <a href="#reject/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">init(opts)</span>
+    <h1 class="signature">reject(ids)</span>
         
       <div class="specs">
-          <pre>init(nil) :: {:ok, {<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()}}</pre>
+          <pre>reject([<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()] | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: :ok</pre>
       </div>
   </div>
   <section class="docstring">
-<p>Invoked when the server is started. <code class="inline">start_link/3</code> or <code class="inline">start/3</code> will
-block until it returns.</p>
-<p><code class="inline">init_arg</code> is the argument term (second argument) passed to <code class="inline">start_link/3</code>.</p>
-<p>Returning <code class="inline">{:ok, state}</code> will cause <code class="inline">start_link/3</code> to return
-<code class="inline">{:ok, pid}</code> and the process to enter its loop.</p>
-<p>Returning <code class="inline">{:ok, state, timeout}</code> is similar to <code class="inline">{:ok, state}</code>
-except <code class="inline">handle_info(:timeout, state)</code> will be called after <code class="inline">timeout</code>
-milliseconds if no messages are received within the timeout.</p>
-<p>Returning <code class="inline">{:ok, state, :hibernate}</code> is similar to <code class="inline">{:ok, state}</code>
-except the process is hibernated before entering the loop. See
-<code class="inline">c:handle_call/3</code> for more information on hibernation.</p>
-<p>Returning <code class="inline">{:ok, state, {:continue, continue}}</code> is similar to
-<code class="inline">{:ok, state}</code> except that immediately after entering the loop
-the <code class="inline">c:handle_continue/2</code> callback will be invoked with the value
-<code class="inline">continue</code> as first argument.</p>
-<p>Returning <code class="inline">:ignore</code> will cause <code class="inline">start_link/3</code> to return <code class="inline">:ignore</code> and
-the process will exit normally without entering the loop or calling
-<code class="inline">c:terminate/2</code>. If used when part of a supervision tree the parent
-supervisor will not fail to start nor immediately try to restart the
-<a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a>. The remainder of the supervision tree will be started
-and so the <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> should not be required by other processes.
-It can be started later with <a href="https://hexdocs.pm/elixir/Supervisor.html#restart_child/2"><code class="inline">Supervisor.restart_child/2</code></a> as the child
-specification is saved in the parent supervisor. The main use cases for
-this are:</p>
-<ul>
-<li>The <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> is disabled by configuration but might be enabled later.
-</li>
-<li>An error occurred and it will be handled by a different mechanism than the
-   <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>. Likely this approach involves calling <a href="https://hexdocs.pm/elixir/Supervisor.html#restart_child/2"><code class="inline">Supervisor.restart_child/2</code></a>
-after a delay to attempt a restart.
-</li>
-</ul>
-<p>Returning <code class="inline">{:stop, reason}</code> will cause <code class="inline">start_link/3</code> to return
-<code class="inline">{:error, reason}</code> and the process to exit with reason <code class="inline">reason</code> without
-entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="queue/1">
-  
-    <span id="queue/0"></span>
-  <div class="detail-header">
-    <a href="#queue/1" class="detail-link" title="Link to this macro">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this macro</span>
-    </a>
-    <h1 class="signature">queue(args \\ [])</span>
-    
-      <span class="note">(macro)</span>
-      </div>
-  <section class="docstring">
-<p>Структура очереди на основе двух стеков.
-Представлена в виде записи, с полями:</p>
-<ul>
-<li><code class="inline">ref</code> - уникальная сссылка текущей очереди.
-</li>
-<li><code class="inline">l</code>   - ссылка на левый стек.
-</li>
-<li><code class="inline">r</code>   - ссылка на правый стек.
-</li>
-</ul>
-  </section>
-</section>
-<section class="detail" id="queue/2">
-    <div class="detail-header">
-    <a href="#queue/2" class="detail-link" title="Link to this macro">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this macro</span>
-    </a>
-    <h1 class="signature">queue(record, args)</span>
-    
-      <span class="note">(macro)</span>
-      </div>
-  <section class="docstring">
-  </section>
-</section>
-<section class="detail" id="reject/0">
-    <div class="detail-header">
-    <a href="#reject/0" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">reject()</span>
-        
-      <div class="specs">
-          <pre>reject() :: :ok</pre>
-      </div>
-  </div>
-  <section class="docstring">
-<p>Откатить все полученные элементы. 
+<p>Сообщить о неудачном выполнение. 
 Элементы будут возвращены в конец очереди.</p>
-<h3 id="reject/0-пример" class="section-heading">
-  <a href="#reject/0-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Пример
+<h3 id="reject/1-параметры" class="section-heading">
+  <a href="#reject/1-параметры" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Параметры
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8405461721-1">(</span><span class="mi">1</span><span class="p" data-group-id="8405461721-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8405461721-2">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="8405461721-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="8405461721-3">(</span><span class="p" data-group-id="8405461721-3">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8405461721-4">(</span><span class="mi">2</span><span class="p" data-group-id="8405461721-4">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="bp">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="p" data-group-id="8405461721-5">(</span><span class="p" data-group-id="8405461721-5">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8405461721-6">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="8405461721-6">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">2</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8405461721-7">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="8405461721-7">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">1</span></code></pre>
-  </section>
-</section>
-<section class="detail" id="rollback/1">
-    <div class="detail-header">
-    <a href="#rollback/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">rollback(ref)</span>
-        
-      <div class="specs">
-          <pre>rollback(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">reference</a>()</pre>
-      </div>
-  </div>
-  <section class="docstring">
-<p>Откатит очередь к некоторму состоянию.</p>
-<h3 id="rollback/1-пример" class="section-heading">
-  <a href="#rollback/1-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Пример
-</h3>
-
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">q1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="1067294872-1">(</span><span class="mi">1</span><span class="p" data-group-id="1067294872-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1067294872-2">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="1067294872-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">rollback</span><span class="p" data-group-id="1067294872-3">(</span><span class="n">q1</span><span class="p" data-group-id="1067294872-3">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1067294872-4">{</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="1067294872-4">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">val</span><span class="w">
-</span><span class="mi">1</span></code></pre>
-  </section>
-</section>
-<section class="detail" id="stack/1">
-  
-    <span id="stack/0"></span>
-  <div class="detail-header">
-    <a href="#stack/1" class="detail-link" title="Link to this macro">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this macro</span>
-    </a>
-    <h1 class="signature">stack(args \\ [])</span>
-    
-      <span class="note">(macro)</span>
-      </div>
-  <section class="docstring">
-<p>Структура стека.
-Представлена в виде записи, с полями:</p>
 <ul>
-<li><code class="inline">ref</code>  - уникальная ссылка текущего стека.
-</li>
-<li><code class="inline">val</code>  - текущее значение.
-</li>
-<li><code class="inline">pref</code> - ссылка на предыдущее значение стека.
+<li><code class="inline">ids</code> - список id элементов, которые завершились не удачей.
+ID можно передавать и по одному.
 </li>
 </ul>
+<h3 id="reject/1-возвращает" class="section-heading">
+  <a href="#reject/1-возвращает" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Возвращает
+</h3>
+
+<p>Атом <code class="inline">:ok</code> в случае успеха, <code class="inline">{:error, reason}</code> в противном случае.</p>
+<h3 id="reject/1-пример" class="section-heading">
+  <a href="#reject/1-пример" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Пример
+</h3>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4017887344-1">(</span><span class="p" data-group-id="4017887344-2">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="4017887344-2">]</span><span class="p" data-group-id="4017887344-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-3">[</span><span class="p" data-group-id="4017887344-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id1</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value1</span><span class="p" data-group-id="4017887344-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-5">(</span><span class="p" data-group-id="4017887344-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value1</span><span class="w">
+</span><span class="mi">1</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-6">[</span><span class="p" data-group-id="4017887344-7">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id2</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value2</span><span class="p" data-group-id="4017887344-7">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-6">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-8">(</span><span class="p" data-group-id="4017887344-8">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value2</span><span class="w">
+</span><span class="mi">2</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="p" data-group-id="4017887344-9">(</span><span class="n">id2</span><span class="p" data-group-id="4017887344-9">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-10">[</span><span class="p" data-group-id="4017887344-11">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id3</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value3</span><span class="p" data-group-id="4017887344-11">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-10">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-12">(</span><span class="p" data-group-id="4017887344-12">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value3</span><span class="w">
+</span><span class="mi">3</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-13">[</span><span class="p" data-group-id="4017887344-14">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id4</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value4</span><span class="p" data-group-id="4017887344-14">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-13">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-15">(</span><span class="p" data-group-id="4017887344-15">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value4</span><span class="w">
+</span><span class="mi">2</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4017887344-16">(</span><span class="p" data-group-id="4017887344-17">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="4017887344-17">]</span><span class="p" data-group-id="4017887344-16">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-18">(</span><span class="mi">3</span><span class="p" data-group-id="4017887344-18">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="4017887344-19">(</span><span class="k" data-group-id="4017887344-20">fn</span><span class="w"> </span><span class="p" data-group-id="4017887344-21">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p" data-group-id="4017887344-21">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k" data-group-id="4017887344-20">end</span><span class="p" data-group-id="4017887344-19">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-22">[</span><span class="p" data-group-id="4017887344-23">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="4017887344-23">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-22">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-24">(</span><span class="p" data-group-id="4017887344-24">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">value</span><span class="w">
+</span><span class="mi">1</span></code></pre>
   </section>
 </section>
-<section class="detail" id="stack/2">
+<section class="detail" id="start/2">
     <div class="detail-header">
-    <a href="#stack/2" class="detail-link" title="Link to this macro">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this macro</span>
-    </a>
-    <h1 class="signature">stack(record, args)</span>
-    
-      <span class="note">(macro)</span>
-      </div>
-  <section class="docstring">
-  </section>
-</section>
-<section class="detail" id="start_link/0">
-    <div class="detail-header">
-    <a href="#start_link/0" class="detail-link" title="Link to this function">
+    <a href="#start/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">start_link()</span>
+    <h1 class="signature">start(type, args)</span>
         
       <div class="specs">
-          <pre>start_link() :: :ignore | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()} | {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pid</a>()}</pre>
+          <pre>start(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: :ignore | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()} | {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pid</a>()}</pre>
       </div>
   </div>
   <section class="docstring">
+<p>Called when an application is started.</p>
+<p>This function is called when an application is started using
+<a href="https://hexdocs.pm/elixir/Application.html#start/2"><code class="inline">Application.start/2</code></a> (and functions on top of that, such as
+<a href="https://hexdocs.pm/elixir/Application.html#ensure_started/2"><code class="inline">Application.ensure_started/2</code></a>). This function should start the top-level
+process of the application (which should be the top supervisor of the
+application&#39;s supervision tree if the application follows the OTP design
+principles around supervision).</p>
+<p><code class="inline">start_type</code> defines how the application is started:</p>
+<ul>
+<li><code class="inline">:normal</code> - used if the startup is a normal startup or if the application
+is distributed and is started on the current node because of a failover
+from another node and the application specification key <code class="inline">:start_phases</code>
+is <code class="inline">:undefined</code>.
+</li>
+<li><code class="inline">{:takeover, node}</code> - used if the application is distributed and is
+started on the current node because of a failover on the node <code class="inline">node</code>.
+</li>
+<li><code class="inline">{:failover, node}</code> - used if the application is distributed and is
+started on the current node because of a failover on node <code class="inline">node</code>, and the
+application specification key <code class="inline">:start_phases</code> is not <code class="inline">:undefined</code>.
+</li>
+</ul>
+<p><code class="inline">start_args</code> are the arguments passed to the application in the <code class="inline">:mod</code>
+specification key (e.g., <code class="inline">mod: {MyApp, [:my_args]}</code>).</p>
+<p>This function should either return <code class="inline">{:ok, pid}</code> or <code class="inline">{:ok, pid, state}</code> if
+startup is successful. <code class="inline">pid</code> should be the PID of the top supervisor. <code class="inline">state</code>
+can be an arbitrary term, and if omitted will default to <code class="inline">[]</code>; if the
+application is later stopped, <code class="inline">state</code> is passed to the <code class="inline">stop/1</code> callback (see
+the documentation for the <code class="inline">c:stop/1</code> callback for more information).</p>
+<p><code class="inline">use Application</code> provides no default implementation for the <a href="#start/2"><code class="inline">start/2</code></a>
+callback.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/elixir/Application.html#c:start/2"><code class="inline">Application.start/2</code></a>.</p>
   </section>
 </section>
           </div>

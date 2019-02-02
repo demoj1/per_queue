@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.3">
-    <title>API Reference — queue v0.1.0</title>
+    <title>API Reference — queue v0.2.0</title>
     <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
-    <script src="dist/sidebar_items-3ffea43958.js"></script>
+    <script src="dist/sidebar_items-87a54b759e.js"></script>
     <script async src="dist/html-399e30b9b028e3059575.js"></script>
     
   </head>
@@ -29,7 +29,7 @@
       <h1 class="sidebar-projectName">
 queue      </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.0
+        v0.2.0
       </h2>
     </div>
   </a>
@@ -47,6 +47,7 @@ queue      </h1>
       <li><a id="modules-list" href="#full-list">Modules</a></li>
 
 
+      <li><a id="tasks-list" href="#full-list">Mix Tasks</a></li>
   </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
@@ -58,7 +59,7 @@ queue      </h1>
 
 
 <h1>
-  <small class="visible-xs">queue v0.1.0</small>
+  <small class="visible-xs">queue v0.2.0</small>
   API Reference
 </h1>
 
@@ -73,19 +74,32 @@ queue      </h1>
   <div class="summary-signature">
     <a href="Queue.html">Queue</a>
   </div>
-    <div class="summary-synopsis"><p>Персистентная очередь сообщений. 
-Очередь реализована с использованием двух стеков</p>
+    <div class="summary-synopsis"><p>Очередь сообщений.
+Перед началом использования необходимо остановить
+текущий сервис.
+Выполнить инициализацию Mnesia с помощью команды <a href="Mix.Tasks.Queue.Setup.html"><code class="inline">mix queue.setup</code></a></p>
 </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="QueueApplication.html">QueueApplication</a>
-  </div>
 </div>
     </div>
   </section>
 
 
+  <section class="details-list">
+    <h2 id="mix-tasks" class="section-heading">
+  <a href="#mix-tasks" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Mix Tasks
+</h2>
+
+    <div class="summary">
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Mix.Tasks.Queue.Setup.html">queue.setup</a>
+  </div>
+    <div class="summary-synopsis"><p>Mix task выполняющий инициализацию структуры Mnesia</p>
+</div>
+</div>
+    </div>
+  </section>
       <footer class="footer">
         <p>
           <span class="line">
