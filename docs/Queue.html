@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.3">
-    <title>Queue — queue v0.2.0</title>
+    <title>Queue — Queue v0.2.0</title>
     <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
     <script src="dist/sidebar_items-87a54b759e.js"></script>
     <script async src="dist/html-399e30b9b028e3059575.js"></script>
@@ -24,10 +24,10 @@
 </button>
 <section class="sidebar">
 
-  <a href="api-reference.html" class="sidebar-projectLink">
+  <a href="https://dmitrydprog.github.io/per_queue/Queue.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
-queue      </h1>
+Queue      </h1>
       <h2 class="sidebar-projectVersion">
         v0.2.0
       </h2>
@@ -59,15 +59,20 @@ queue      </h1>
 
 
       <h1>
-        <small class="visible-xs">queue v0.2.0</small>
-Queue              </h1>
+        <small class="visible-xs">Queue v0.2.0</small>
+Queue        
+          <a href="https://github.com/dmitrydprog/per_queue/blob/master/lib/queue.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+      </h1>
 
 
         <section id="moduledoc">
 <p>Очередь сообщений.
 Перед началом использования необходимо остановить
 текущий сервис.
-Выполнить инициализацию Mnesia с помощью команды <a href="Mix.Tasks.Queue.Setup.html"><code class="inline">mix queue.setup</code></a></p>
+Выполнить инициализацию Mnesia с помощью команды <a href="Mix.Tasks.Queue.Setup.html"><code class="inline">mix queue.setup</code></a>.</p>
         </section>
 
         <section id="summary" class="details-list">
@@ -137,6 +142,10 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">ack(ids)</span>
+      <a href="https://github.com/dmitrydprog/per_queue/blob/master/lib/queue.ex#L120" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
         
       <div class="specs">
           <pre>ack([<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()] | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: :ok</pre>
@@ -166,20 +175,20 @@ ID можно передавать и по одному.
   Пример
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="1423150671-1">(</span><span class="p" data-group-id="1423150671-2">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p" data-group-id="1423150671-2">]</span><span class="p" data-group-id="1423150671-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1423150671-3">[</span><span class="p" data-group-id="1423150671-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id1</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value1</span><span class="p" data-group-id="1423150671-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="1423150671-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-5">(</span><span class="p" data-group-id="1423150671-5">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4963208131-1">(</span><span class="p" data-group-id="4963208131-2">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p" data-group-id="4963208131-2">]</span><span class="p" data-group-id="4963208131-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4963208131-3">[</span><span class="p" data-group-id="4963208131-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id1</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value1</span><span class="p" data-group-id="4963208131-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4963208131-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4963208131-5">(</span><span class="p" data-group-id="4963208131-5">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value1</span><span class="w">
 </span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1423150671-6">[</span><span class="p" data-group-id="1423150671-7">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id2</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value2</span><span class="p" data-group-id="1423150671-7">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="1423150671-6">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-8">(</span><span class="p" data-group-id="1423150671-8">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4963208131-6">[</span><span class="p" data-group-id="4963208131-7">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id2</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value2</span><span class="p" data-group-id="4963208131-7">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4963208131-6">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4963208131-8">(</span><span class="p" data-group-id="4963208131-8">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value2</span><span class="w">
 </span><span class="mi">2</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="ss">:ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">ack</span><span class="p" data-group-id="1423150671-9">(</span><span class="n">id2</span><span class="p" data-group-id="1423150671-9">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-10">(</span><span class="p" data-group-id="1423150671-10">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="ss">:ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">ack</span><span class="p" data-group-id="4963208131-9">(</span><span class="n">id2</span><span class="p" data-group-id="4963208131-9">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4963208131-10">(</span><span class="p" data-group-id="4963208131-10">)</span><span class="w">
 </span><span class="ss">:empty</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="1423150671-11">(</span><span class="p" data-group-id="1423150671-12">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="1423150671-12">]</span><span class="p" data-group-id="1423150671-11">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-13">(</span><span class="mi">3</span><span class="p" data-group-id="1423150671-13">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="1423150671-14">(</span><span class="k" data-group-id="1423150671-15">fn</span><span class="w"> </span><span class="p" data-group-id="1423150671-16">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p" data-group-id="1423150671-16">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k" data-group-id="1423150671-15">end</span><span class="p" data-group-id="1423150671-14">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="1423150671-17">[</span><span class="p" data-group-id="1423150671-18">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="1423150671-18">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="1423150671-17">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1423150671-19">(</span><span class="p" data-group-id="1423150671-19">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4963208131-11">(</span><span class="p" data-group-id="4963208131-12">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="4963208131-12">]</span><span class="p" data-group-id="4963208131-11">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4963208131-13">(</span><span class="mi">3</span><span class="p" data-group-id="4963208131-13">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="4963208131-14">(</span><span class="k" data-group-id="4963208131-15">fn</span><span class="w"> </span><span class="p" data-group-id="4963208131-16">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p" data-group-id="4963208131-16">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k" data-group-id="4963208131-15">end</span><span class="p" data-group-id="4963208131-14">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4963208131-17">[</span><span class="p" data-group-id="4963208131-18">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="4963208131-18">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4963208131-17">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4963208131-19">(</span><span class="p" data-group-id="4963208131-19">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value</span><span class="w">
 </span><span class="mi">1</span></code></pre>
   </section>
@@ -191,6 +200,10 @@ ID можно передавать и по одному.
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">add(vals)</span>
+      <a href="https://github.com/dmitrydprog/per_queue/blob/master/lib/queue.ex#L30" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
         
       <div class="specs">
           <pre>add(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: :ok</pre>
@@ -212,10 +225,10 @@ ID можно передавать и по одному.
   Пример
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8347253972-1">(</span><span class="mi">1</span><span class="p" data-group-id="8347253972-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8749465237-1">(</span><span class="mi">1</span><span class="p" data-group-id="8749465237-1">)</span><span class="w">
 </span><span class="ss">:ok</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8347253972-2">(</span><span class="p" data-group-id="8347253972-3">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p" data-group-id="8347253972-3">]</span><span class="p" data-group-id="8347253972-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="8749465237-2">(</span><span class="p" data-group-id="8749465237-3">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p" data-group-id="8749465237-3">]</span><span class="p" data-group-id="8749465237-2">)</span><span class="w">
 </span><span class="ss">:ok</span></code></pre>
   </section>
 </section>
@@ -228,6 +241,10 @@ ID можно передавать и по одному.
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get(limit \\ 1)</span>
+      <a href="https://github.com/dmitrydprog/per_queue/blob/master/lib/queue.ex#L52" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
         
       <div class="specs">
           <pre>get(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()} | Queue.DB.Jobs.result()</pre>
@@ -256,11 +273,11 @@ ID можно передавать и по одному.
   Пример
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7068825226-1">(</span><span class="p" data-group-id="7068825226-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="6750499250-1">(</span><span class="p" data-group-id="6750499250-1">)</span><span class="w">
 </span><span class="ss">:empty</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="ss">:ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7068825226-2">(</span><span class="mi">123</span><span class="p" data-group-id="7068825226-2">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7068825226-3">[</span><span class="p" data-group-id="7068825226-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="7068825226-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="7068825226-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7068825226-5">(</span><span class="p" data-group-id="7068825226-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="ss">:ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="6750499250-2">(</span><span class="mi">123</span><span class="p" data-group-id="6750499250-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="6750499250-3">[</span><span class="p" data-group-id="6750499250-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="6750499250-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="6750499250-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="6750499250-5">(</span><span class="p" data-group-id="6750499250-5">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value</span><span class="w">
 </span><span class="mi">123</span></code></pre>
   </section>
@@ -272,6 +289,10 @@ ID можно передавать и по одному.
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">reject(ids)</span>
+      <a href="https://github.com/dmitrydprog/per_queue/blob/master/lib/queue.ex#L88" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
         
       <div class="specs">
           <pre>reject([<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()] | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: :ok</pre>
@@ -301,24 +322,24 @@ ID можно передавать и по одному.
   Пример
 </h3>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4017887344-1">(</span><span class="p" data-group-id="4017887344-2">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="4017887344-2">]</span><span class="p" data-group-id="4017887344-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-3">[</span><span class="p" data-group-id="4017887344-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id1</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value1</span><span class="p" data-group-id="4017887344-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-5">(</span><span class="p" data-group-id="4017887344-5">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7749952865-1">(</span><span class="p" data-group-id="7749952865-2">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="7749952865-2">]</span><span class="p" data-group-id="7749952865-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7749952865-3">[</span><span class="p" data-group-id="7749952865-4">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id1</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value1</span><span class="p" data-group-id="7749952865-4">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="7749952865-3">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7749952865-5">(</span><span class="p" data-group-id="7749952865-5">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value1</span><span class="w">
 </span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-6">[</span><span class="p" data-group-id="4017887344-7">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id2</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value2</span><span class="p" data-group-id="4017887344-7">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-6">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-8">(</span><span class="p" data-group-id="4017887344-8">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7749952865-6">[</span><span class="p" data-group-id="7749952865-7">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id2</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value2</span><span class="p" data-group-id="7749952865-7">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="7749952865-6">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7749952865-8">(</span><span class="p" data-group-id="7749952865-8">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value2</span><span class="w">
 </span><span class="mi">2</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="p" data-group-id="4017887344-9">(</span><span class="n">id2</span><span class="p" data-group-id="4017887344-9">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-10">[</span><span class="p" data-group-id="4017887344-11">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id3</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value3</span><span class="p" data-group-id="4017887344-11">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-10">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-12">(</span><span class="p" data-group-id="4017887344-12">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="p" data-group-id="7749952865-9">(</span><span class="n">id2</span><span class="p" data-group-id="7749952865-9">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7749952865-10">[</span><span class="p" data-group-id="7749952865-11">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id3</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value3</span><span class="p" data-group-id="7749952865-11">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="7749952865-10">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7749952865-12">(</span><span class="p" data-group-id="7749952865-12">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value3</span><span class="w">
 </span><span class="mi">3</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-13">[</span><span class="p" data-group-id="4017887344-14">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id4</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value4</span><span class="p" data-group-id="4017887344-14">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-13">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-15">(</span><span class="p" data-group-id="4017887344-15">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7749952865-13">[</span><span class="p" data-group-id="7749952865-14">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id4</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value4</span><span class="p" data-group-id="7749952865-14">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="7749952865-13">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7749952865-15">(</span><span class="p" data-group-id="7749952865-15">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value4</span><span class="w">
 </span><span class="mi">2</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="4017887344-16">(</span><span class="p" data-group-id="4017887344-17">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="4017887344-17">]</span><span class="p" data-group-id="4017887344-16">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-18">(</span><span class="mi">3</span><span class="p" data-group-id="4017887344-18">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="4017887344-19">(</span><span class="k" data-group-id="4017887344-20">fn</span><span class="w"> </span><span class="p" data-group-id="4017887344-21">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p" data-group-id="4017887344-21">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k" data-group-id="4017887344-20">end</span><span class="p" data-group-id="4017887344-19">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4017887344-22">[</span><span class="p" data-group-id="4017887344-23">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="4017887344-23">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="4017887344-22">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="4017887344-24">(</span><span class="p" data-group-id="4017887344-24">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7749952865-16">(</span><span class="p" data-group-id="7749952865-17">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="7749952865-17">]</span><span class="p" data-group-id="7749952865-16">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7749952865-18">(</span><span class="mi">3</span><span class="p" data-group-id="7749952865-18">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p" data-group-id="7749952865-19">(</span><span class="k" data-group-id="7749952865-20">fn</span><span class="w"> </span><span class="p" data-group-id="7749952865-21">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p" data-group-id="7749952865-21">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k" data-group-id="7749952865-20">end</span><span class="p" data-group-id="7749952865-19">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">reject</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7749952865-22">[</span><span class="p" data-group-id="7749952865-23">%{</span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="7749952865-23">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c">_T</span><span class="p" data-group-id="7749952865-22">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Queue</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="7749952865-24">(</span><span class="p" data-group-id="7749952865-24">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">value</span><span class="w">
 </span><span class="mi">1</span></code></pre>
   </section>
@@ -330,6 +351,10 @@ ID можно передавать и по одному.
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">start(type, args)</span>
+      <a href="https://github.com/dmitrydprog/per_queue/blob/master/lib/queue.ex#L12" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
         
       <div class="specs">
           <pre>start(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: :ignore | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()} | {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pid</a>()}</pre>

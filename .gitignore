@@ -22,3 +22,5 @@ queue-*.tar
 /.elixir_ls/
 
 /.vscode/
+
+/mnesia/
