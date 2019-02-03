@@ -27,6 +27,16 @@ defmodule Queue.DB do
       add([value])
     end
 
+    @doc """
+    Получить задачу/задачи из очереди.
+    В одной транзакции можно получить сразу несколько задач.
+
+    ### Параметры
+    * `limit` - Количество получаемых задач, по умолчанию 1.
+
+    ### Возвращает
+    `{:ok, [job1, job2, ...]} | :empty` в случае успеха, иначе `{:error, reason}`.
+    """
     @spec get(integer) :: {:error, any} | {:ok, result}
     def get(limit \\ 1) when is_integer(limit) do
       Memento.Transaction.execute(fn ->
@@ -57,6 +67,15 @@ defmodule Queue.DB do
       ack([id])
     end
 
+    @doc """
+    Сообщить о неудачном выполнение.
+
+    В результате выполнения метода будет создана транзакция
+    в рамках которой будут проведены следующие операции:
+    1. Все нужные задачи будут прочитаны из БД, их ID сохранены.
+    2. Каждая задача будет удалена.
+    3. Payload/значение каждой задачи будет добавлен в конец очереди.
+    """
     @spec reject(list(integer) | integer) :: any
     def reject(ids) when is_list(ids) do
       Memento.transaction(fn ->
@@ -85,7 +104,7 @@ defmodule Queue.DB do
       Memento.Query.delete(Jobs, id)
     end
 
-    @spec read(integer) :: :ok | nil
+    @spec read(integer) :: Jobs | nil
     defp read(id) when is_integer(id) do
       Memento.Query.read(Jobs, id)
     end

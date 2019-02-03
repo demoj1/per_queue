@@ -50,6 +50,12 @@ defmodule Queue.Queue do
     {:reply, res, state}
   end
 
+  def handle_info(msg, state) do
+    Logger.info("Undefined msg: #{inspect(msg)}")
+
+    {:noreply, state}
+  end
+
   # ---------External---------
 
   @spec add(any()) :: :ok
